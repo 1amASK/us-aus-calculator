@@ -13,23 +13,31 @@ def aud_to_usd(amount):
 def add_currencies(first_amount, first_type, second_amount, second_type, end_type):
     if end_type == first_type and end_type == second_type:
         return first_type + second_type
-    if end_type != first_type or end_type != second_type:
+    elif end_type != first_type or end_type != second_type:
         if first_type == "usd" and end_type == "usd":
             second_amount = aud_to_usd(second_amount)
             return first_amount + second_amount
-        if first_type == "aud" and end_type == "aud":
+        elif first_type == "aud" and end_type == "aud":
             second_amount = usd_to_aud(second_amount)
             return first_amount + second_amount
+        else:
+            print("Invalid input.")
+    else:
+        print("Invalid input.")
 def subtract_currencies(first_amount, first_type, second_amount, second_type, end_type):
     if end_type == first_type and end_type == second_type:
         return first_type - second_type
-    if end_type != first_type or end_type != second_type:
+    elif end_type != first_type or end_type != second_type:
         if first_type == "usd" and end_type == "usd":
             second_amount = aud_to_usd(second_amount)
             return first_amount - second_amount
-        if first_type == "aud" and end_type == "aud":
+        elif first_type == "aud" and end_type == "aud":
             second_amount = usd_to_aud(second_amount)
             return first_amount - second_amount
+        else:
+            print("Invalid input.")
+    else:
+        print("Invalid input.")
         
 #program
 perform = str(input("What do you want to do? convert, add or subtract: ")).lower()
@@ -42,7 +50,8 @@ if perform == "convert":
         print(usd_to_aud(amount))
     if type == "aud" and end_type == "usd":
         print(aud_to_usd(amount))
-
+    else:
+        print("Invalid input.")
 elif perform == "add" or perform == "subtract":
     first_amount = float(input("Enter the first amount: "))
     first_type = str(input("What currecncy is it? usd or aud: ")).lower()
@@ -51,5 +60,9 @@ elif perform == "add" or perform == "subtract":
     end_type = str(input("What currency do you want it to be? usd or aud: ")).lower()
     if perform == "add":
         print(add_currencies(first_amount, first_type, second_amount, second_type, end_type))
-    if perform == "subtract":
+    elif perform == "subtract":
         print(subtract_currencies(first_amount, first_type, second_amount, second_type, end_type))
+    else:
+        print("Invalid input.")
+else:
+    print("Invalid input.")
