@@ -13,6 +13,11 @@ def aud_to_usd(amount):
 def add_currencies(first_amount, first_type, second_amount, second_type, end_type):
     if end_type == first_type and end_type == second_type:
         return first_type + second_type
+    elif first_type == second_type:
+        if first_type == "usd" and end_type != "usd":
+            return usd_to_aud(first_amount) + usd_to_aud(second_amount)
+        if first_type == "aud" and end_type != "aud":
+            return aud_to_usd(first_amount) + aud_to_usd(second_amount)
     elif end_type != first_type or end_type != second_type:
         if first_type == "usd" and end_type == "usd":
             second_amount = aud_to_usd(second_amount)
@@ -27,6 +32,11 @@ def add_currencies(first_amount, first_type, second_amount, second_type, end_typ
 def subtract_currencies(first_amount, first_type, second_amount, second_type, end_type):
     if end_type == first_type and end_type == second_type:
         return first_type - second_type
+    elif first_type == second_type:
+        if first_type == "usd" and end_type != "usd":
+            return usd_to_aud(first_amount) - usd_to_aud(second_amount)
+        if first_type == "aud" and end_type != "aud":
+            return aud_to_usd(first_amount) - aud_to_usd(second_amount)
     elif end_type != first_type or end_type != second_type:
         if first_type == "usd" and end_type == "usd":
             second_amount = aud_to_usd(second_amount)
