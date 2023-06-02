@@ -1,5 +1,5 @@
 """
-[I want to create a Python program that can convert between US currency and Australian currency. As well, I want to be able to add or subtract the two together and get an accurate value in either currencies. Could you point out some key points that would be helpful for this project?]
+[I want to create a Python program that can convert between US currency and Australian currency. As well, I want to be able to add or subtract the two together and get an accurate value in either currencies.]
 
 US:1.00 = AUD:1.51
 """
